@@ -151,7 +151,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="나의 냉장고"
-                android:textSize="10sp" />
+                android:textSize="11sp" />
         </LinearLayout>
 
         <Space
@@ -179,7 +179,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="레시피 찾기"
-                android:textSize="10sp" />
+                android:textSize="11sp" />
         </LinearLayout>
 
         <Space
@@ -207,7 +207,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="설정"
-                android:textSize="10sp" />
+                android:textSize="11sp" />
         </LinearLayout>
     </LinearLayout>
 

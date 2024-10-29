@@ -52,7 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
         android:hint="검색어를 입력하세요"
-        android:textSize="13dp"
+        android:inputType="textAutoComplete"
+        android:textSize="13sp"
         android:padding="10dp"
         android:drawableStart="@drawable/ic_search" />
 
@@ -169,7 +170,8 @@
                         android:layout_width="11dp"
                         android:layout_height="11dp"
                         android:layout_gravity="top|end"
-                        android:src="@drawable/ic_plus" />
+                        android:src="@drawable/ic_plus"
+                        android:contentDescription="추가 버튼"/>
                 </FrameLayout>
 
                 <!-- 재료 이름 -->
@@ -207,7 +209,8 @@
                         android:layout_width="11dp"
                         android:layout_height="11dp"
                         android:layout_gravity="top|end"
-                        android:src="@drawable/ic_plus" />
+                        android:src="@drawable/ic_plus"
+                        android:contentDescription="추가 버튼"/>
                 </FrameLayout>
 
                 <TextView
@@ -244,7 +247,8 @@
                         android:layout_width="11dp"
                         android:layout_height="11dp"
                         android:layout_gravity="top|end"
-                        android:src="@drawable/ic_plus" />
+                        android:src="@drawable/ic_plus"
+                        android:contentDescription="추가 버튼"/>
                 </FrameLayout>
 
                 <TextView
@@ -281,7 +285,8 @@
                         android:layout_width="11dp"
                         android:layout_height="11dp"
                         android:layout_gravity="top|end"
-                        android:src="@drawable/ic_plus" />
+                        android:src="@drawable/ic_plus"
+                        android:contentDescription="추가 버튼"/>
                 </FrameLayout>
 
                 <TextView
@@ -318,7 +323,8 @@
                         android:layout_width="11dp"
                         android:layout_height="11dp"
                         android:layout_gravity="top|end"
-                        android:src="@drawable/ic_plus" />
+                        android:src="@drawable/ic_plus"
+                        android:contentDescription="추가 버튼"/>
                 </FrameLayout>
 
                 <TextView
@@ -355,7 +361,8 @@
                         android:layout_width="11dp"
                         android:layout_height="11dp"
                         android:layout_gravity="top|end"
-                        android:src="@drawable/ic_plus" />
+                        android:src="@drawable/ic_plus"
+                        android:contentDescription="추가 버튼"/>
                 </FrameLayout>
 
                 <TextView
@@ -392,7 +399,8 @@
                         android:layout_width="11dp"
                         android:layout_height="11dp"
                         android:layout_gravity="top|end"
-                        android:src="@drawable/ic_plus" />
+                        android:src="@drawable/ic_plus"
+                        android:contentDescription="추가 버튼"/>
                 </FrameLayout>
 
                 <TextView
@@ -429,7 +437,8 @@
                         android:layout_width="11dp"
                         android:layout_height="11dp"
                         android:layout_gravity="top|end"
-                        android:src="@drawable/ic_plus" />
+                        android:src="@drawable/ic_plus"
+                        android:contentDescription="추가 버튼"/>
                 </FrameLayout>
 
                 <TextView
@@ -466,7 +475,8 @@
                         android:layout_width="11dp"
                         android:layout_height="11dp"
                         android:layout_gravity="top|end"
-                        android:src="@drawable/ic_plus" />
+                        android:src="@drawable/ic_plus"
+                        android:contentDescription="추가 버튼"/>
                 </FrameLayout>
 
                 <TextView
@@ -503,7 +513,8 @@
                         android:layout_width="11dp"
                         android:layout_height="11dp"
                         android:layout_gravity="top|end"
-                        android:src="@drawable/ic_plus" />
+                        android:src="@drawable/ic_plus"
+                        android:contentDescription="추가 버튼"/>
                 </FrameLayout>
 
                 <TextView
@@ -540,7 +551,8 @@
                         android:layout_width="11dp"
                         android:layout_height="11dp"
                         android:layout_gravity="top|end"
-                        android:src="@drawable/ic_plus" />
+                        android:src="@drawable/ic_plus"
+                        android:contentDescription="추가 버튼"/>
                 </FrameLayout>
 
                 <TextView
@@ -577,7 +589,8 @@
                         android:layout_width="11dp"
                         android:layout_height="11dp"
                         android:layout_gravity="top|end"
-                        android:src="@drawable/ic_plus" />
+                        android:src="@drawable/ic_plus"
+                        android:contentDescription="추가 버튼"/>
                 </FrameLayout>
 
                 <TextView
@@ -613,7 +626,8 @@
                 android:id="@+id/btn_fredge"
                 android:layout_width="29dp"
                 android:layout_height="29dp"
-                android:background="@drawable/ic_fredge" />
+                android:background="@drawable/ic_fredge"
+                android:contentDescription="냉장고"/>
 
             <TextView
                 android:id="@+id/tv_myfredge"
@@ -621,7 +635,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="나의 냉장고"
-                android:textSize="10sp" />
+                android:textSize="11sp" />
         </LinearLayout>
 
         <Space
@@ -641,7 +655,8 @@
                 android:id="@+id/btn_recipe"
                 android:layout_width="29dp"
                 android:layout_height="29dp"
-                android:background="@drawable/ic_recipe" />
+                android:background="@drawable/ic_recipe"
+                android:contentDescription="레시피"/>
 
             <TextView
                 android:id="@+id/tv_recipe"
@@ -649,7 +664,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="레시피 찾기"
-                android:textSize="10sp" />
+                android:textSize="11sp" />
         </LinearLayout>
 
         <Space
@@ -669,7 +684,8 @@
                 android:id="@+id/btn_setting"
                 android:layout_width="29dp"
                 android:layout_height="29dp"
-                android:background="@drawable/ic_setting" />
+                android:background="@drawable/ic_setting"
+                android:contentDescription="설정"/>
 
             <TextView
                 android:id="@+id/tv_setting"
@@ -677,7 +693,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="설정"
-                android:textSize="10sp" />
+                android:textSize="11sp" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
