@@ -25,6 +25,19 @@
             android:name=".HomeActivity"
             android:exported="true"/>
         <activity
+            android:name=".AddIngredientActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddDetailActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".SettingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".NotificationReceiver"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
             android:name=".IntroActivity"
             android:exported="true">
             <intent-filter>
