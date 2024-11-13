@@ -12,7 +12,6 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -83,17 +82,9 @@ public class ApiRequest {
                 int quantity = jsonObject.getInt("quantity");
                 String expirationDateString = jsonObject.getString("expiration_date");
 
-                // expiration_date를 Calendar 객체로 변환(날짜 관리)
-                Calendar expirationDate = Calendar.getInstance();
-                String[] dateParts = expirationDateString.split("-");
-                int year = Integer.parseInt(dateParts[0]);
-                int month = Integer.parseInt(dateParts[1]) - 1; // 월은 0부터 시작
-                int day = Integer.parseInt(dateParts[2]);
-                expirationDate.set(year, month, day);
-
                 int image = jsonObject.getInt("image");
 
-                ingredients.add(new Ingredient(name, quantity, expirationDate, image));
+                ingredients.add(new Ingredient(name, quantity, expirationDateString, image));
             }
         } catch (Exception e) {
             Log.e("ApiRequest", "Error parsing ingredients", e);
