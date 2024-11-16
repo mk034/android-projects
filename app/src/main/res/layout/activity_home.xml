@@ -8,12 +8,13 @@
     android:padding="16dp"
     tools:context=".HomeActivity">
 
-    <!-- 타이틀 -->
+    <!-- 타이틀 및 버튼들 -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp">
 
+        <!-- 타이틀 텍스트뷰 -->
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
@@ -22,24 +23,36 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <!-- 재료 삭제 버튼 -->
-        <Button
-            android:id="@+id/btn_edit"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="8dp"
-            android:layout_toStartOf="@id/btn_delete"
-            android:background="@drawable/ic_pencil" />
-
+        <!-- 삭제 버튼 -->
         <Button
             android:id="@+id/btn_delete"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignParentEnd="true"
             android:background="@drawable/ic_trashcan" />
+
+        <!-- 수정 버튼 -->
+        <Button
+            android:id="@+id/btn_edit"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@id/btn_delete"
+            android:background="@drawable/ic_pencil"
+            android:contentDescription="재료 수정 버튼" />
+
+        <!-- 추가 버튼 -->
+        <Button
+            android:id="@+id/btn_plus"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@id/btn_edit"
+            android:background="@drawable/ic_plus"
+            android:contentDescription="재료 추가 버튼" />
     </RelativeLayout>
 
-    <!-- 냉동실 -->
+    <!-- 냉장실 섹션 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,33 +68,31 @@
                 android:id="@+id/tv_freezer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="냉동실"
+                android:text="냉장실"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/btn_add_freezer"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentEnd="true"
-                android:background="@drawable/ic_plus" />
-        </RelativeLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:layout_marginTop="8dp">
-
             <TextView
+                android:id="@+id/tv_view_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="재료를 추가해보세요!"
-                android:textColor="#CCCCCC" />
-        </FrameLayout>
+                android:text="상세보기"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="16sp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:clickable="true"
+                android:focusable="true" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_ingredients_fridge"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="8dp" />
     </LinearLayout>
 
-    <!-- 냉장실 -->
+    <!-- 냉동실 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -97,32 +108,33 @@
                 android:id="@+id/tv_fridge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="냉장실"
+                android:text="냉동실"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/btn_add_fredge"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentEnd="true"
-                android:background="@drawable/ic_plus" />
         </RelativeLayout>
 
-        <FrameLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_ingredients_freezer"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginTop="8dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="재료를 추가해보세요!"
-                android:textColor="#CCCCCC" />
-        </FrameLayout>
+        </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 
+    <!-- 레시피 보기 버튼 -->
+    <Button
+        android:id="@+id/btn_recipe_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="레시피 보기"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginRight="110dp"/>
+
+    <!-- 하단바 고정 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
