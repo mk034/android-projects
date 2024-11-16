@@ -50,16 +50,15 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, int position) {
         // 해당 position의 재료 데이터를 가져옴
         Ingredient ingredient = ingredients.get(position);
+        String expirationDateString = ingredient.getFormattedExpirationDate();
 
         // 재료 이름, 수량, 유통기한 등을 표시
         holder.nameTextView.setText(ingredient.getName());
         holder.quantityTextView.setText(ingredient.getQuantity() + "개");
-        holder.intakeDate.setText("유통기한 "+ ingredient.getIntakeDate());
-        holder.expirationDateTextView.setText("입고날짜: " + ingredient.getExpirationDate());
+        holder.intakeDate.setText("입고날짜 "+ ingredient.getIntakeDate());
+        holder.expirationDateTextView.setText("유통기한: " + ingredient.getFormattedExpirationDate());
         int imageResId = ingredient.getImageResId();
         holder.imageView.setImageResource(imageResId);
-
-
         // D-Day 계산 및 표시
         String dDayText = ingredient.calculateDDay();
         holder.dDayTextView.setText(dDayText); // dDayTextView에 D-day 설정
@@ -108,6 +107,19 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.Vi
         return ingredients.size();
     }
 
+    public static class IngredientViewHolder extends RecyclerView.ViewHolder {
+        TextView tvIngredientName;
+
+        public IngredientViewHolder(View itemView) {
+            super(itemView);
+            tvIngredientName = itemView.findViewById(R.id.ingredient_name);
+        }
+    }
+
+    // 재료 목록 반환하는 메서드
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
 
     // ViewHolder 클래스
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -126,6 +138,7 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.Vi
             editButton = itemView.findViewById(R.id.btn_edit);
             deleteButton = itemView.findViewById(R.id.btn_delete);
             dDayTextView = itemView.findViewById(R.id.tv_d_day);  // dDayTextView 초기화
+
         }
     }
 }
