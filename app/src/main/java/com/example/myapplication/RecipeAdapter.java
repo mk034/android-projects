@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,20 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
 
         // 레시피 재료 설정
         holder.recipeIngredients.setText(recipe.getIngredientsAsString());
+
+        // 레시피 이미지 설정
+        holder.recipeImage.setImageResource(recipe.getImageResId());
+
+        // 클릭 리스너 설정
+        holder.itemView.setOnClickListener(v -> {
+            // 레시피의 세부 정보를 RecipeDetailActivity로 넘김ㅁ
+            Intent intent = new Intent(context, RecipeDetailActivity.class);
+            intent.putExtra("RECIPE_NAME", recipe.getName());
+            intent.putExtra("RECIPE_IMAGE", recipe.getImageResId());
+            intent.putExtra("INGREDIENTS", recipe.getIngredients().toArray(new String[0])); // 재료 목록
+            intent.putExtra("COOKING_INSTRUCTIONS", recipe.getCookingInstructions());
+            context.startActivity(intent);
+        });
 
     }
 
