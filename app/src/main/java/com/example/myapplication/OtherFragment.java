@@ -10,46 +10,39 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class SeafoodFragment extends Fragment {
-
-    public SeafoodFragment() {
-        // 기본 생성자
+public class OtherFragment extends Fragment {
+    public OtherFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // 해산물 카테고리 Fragment 레이아웃을 반환
-        return inflater.inflate(R.layout.add_seafood, container, false);
+        // 카테고리 Fragment 레이아웃을 반환
+        return inflater.inflate(R.layout.add_other, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // 이미지버튼 배열
+        // 버튼 ID 배열
         int[] buttonIds = {
-                R.id.iv_mackerel, R.id.iv_squid, R.id.iv_shrimp, R.id.iv_crab,
-                R.id.iv_octopus, R.id.iv_salmon, R.id.iv_clam, R.id.iv_yellowtail,
-                R.id.iv_urchin, R.id.iv_oysters, R.id.iv_mussel, R.id.iv_abalone,
-                R.id.iv_seaweed, R.id.iv_kelp, R.id.iv_pollock, R.id.iv_anchovy,
-                R.id.iv_hairtail, R.id.iv_pacific_saury
+                R.id.iv_egg, R.id.iv_fishcake, R.id.iv_ricecake, R.id.iv_ricecake2,
+                R.id.iv_dumpling, R.id.iv_cutlet, R.id.iv_bread, R.id.iv_spaghetti,
+                R.id.iv_noodle, R.id.iv_kimchi
         };
 
         // 재료 이름 배열
         String[] itemNames = {
-                "고등어", "오징어", "새우", "게", "문어", "연어", "조개", "방어", "성게",
-                "굴", "홍합", "전복", "미역", "다시마", "동태", "멸치", "갈치", "꽁치"
+                "계란", "어묵", "떡볶이 떡", "떡국떡", "만두", "돈까스", "식빵", "스파게티 면",
+                "소면", "김치"
         };
 
         // 재료 이미지 리소스 배열
         int[] itemImages = {
-                R.drawable.it_fish, R.drawable.it_squid, R.drawable.it_shrimp, R.drawable.it_crab,
-                R.drawable.it_octopus, R.drawable.it_fish, R.drawable.it_clam, R.drawable.it_fish,
-                R.drawable.it_urchin, R.drawable.it_clam, R.drawable.it_clam, R.drawable.it_clam,
-                R.drawable.it_seaweed, R.drawable.it_seaweed, R.drawable.it_fish, R.drawable.it_fish,
-                R.drawable.it_fish, R.drawable.it_fish
-
+                R.drawable.it_egg, R.drawable.it_fishcake, R.drawable.it_ricecake, R.drawable.it_ricecake
+                , R.drawable.it_dumpling, R.drawable.it_cutlet, R.drawable.it_bread, R.drawable.it_noodle,
+                R.drawable.it_noodle, R.drawable.it_kimchi
         };
 
         // 각 버튼에 클릭 리스너 추가
@@ -59,7 +52,7 @@ public class SeafoodFragment extends Fragment {
 
             // 버튼이 null인지 확인
             if (button == null) {
-                Log.e("SeafoodFragment", "Button with ID " + buttonIds[i] + " not found!");
+                Log.e("MeatFragment", "Button with ID " + buttonIds[i] + " not found!");
                 continue;  // 버튼을 찾을 수 없으면 다음 버튼으로 넘어감
             }
 

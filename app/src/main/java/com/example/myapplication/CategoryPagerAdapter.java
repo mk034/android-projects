@@ -27,10 +27,8 @@ public class CategoryPagerAdapter extends FragmentStateAdapter {
                 return new SeafoodFragment();  // 수산물
             case 5:
                 return new SauceFragment();  // 양념
-            // case 6:
-               // return new GrainFragment(); // 곡류
-            // case 7:
-               // return new OtherFragment(); //기타
+            case 6:
+                return new OtherFragment(); //기타
             default:
                 return new Fragment();  // 기본 Fragment 반환
         }
@@ -38,6 +36,6 @@ public class CategoryPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 8;  // 탭 개수
+        return 7;  // 탭 개수
     }
 }
