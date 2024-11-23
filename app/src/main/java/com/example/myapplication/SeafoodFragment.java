@@ -30,7 +30,7 @@ public class SeafoodFragment extends Fragment {
         // 이미지버튼 배열
         int[] buttonIds = {
                 R.id.iv_mackerel, R.id.iv_squid, R.id.iv_shrimp, R.id.iv_crab,
-                R.id.iv_octopus, R.id.iv_salmon, R.id.iv_clam, R.id.iv_yellowtail,
+                R.id.iv_octopus, R.id.iv_octopus2, R.id.iv_salmon, R.id.iv_clam, R.id.iv_yellowtail,
                 R.id.iv_urchin, R.id.iv_oysters, R.id.iv_mussel, R.id.iv_abalone,
                 R.id.iv_seaweed, R.id.iv_kelp, R.id.iv_pollock, R.id.iv_anchovy,
                 R.id.iv_hairtail, R.id.iv_pacific_saury
@@ -38,17 +38,18 @@ public class SeafoodFragment extends Fragment {
 
         // 재료 이름 배열
         String[] itemNames = {
-                "고등어", "오징어", "새우", "게", "문어", "연어", "조개", "방어", "성게",
-                "굴", "홍합", "전복", "미역", "다시마", "동태", "멸치", "갈치", "꽁치"
+                "고등어", "오징어", "새우", "게", "문어", "낙지", "연어", "조개",
+                "방어", "성게", "굴", "홍합", "전복", "미역", "다시마", "동태",
+                "멸치", "갈치", "꽁치"
         };
 
         // 재료 이미지 리소스 배열
         int[] itemImages = {
                 R.drawable.it_fish, R.drawable.it_squid, R.drawable.it_shrimp, R.drawable.it_crab,
-                R.drawable.it_octopus, R.drawable.it_fish, R.drawable.it_clam, R.drawable.it_fish,
-                R.drawable.it_urchin, R.drawable.it_clam, R.drawable.it_clam, R.drawable.it_clam,
-                R.drawable.it_seaweed, R.drawable.it_seaweed, R.drawable.it_fish, R.drawable.it_fish,
-                R.drawable.it_fish, R.drawable.it_fish
+                R.drawable.it_octopus, R.drawable.it_squid, R.drawable.it_fish, R.drawable.it_clam,
+                R.drawable.it_fish, R.drawable.it_urchin, R.drawable.it_clam, R.drawable.it_clam,
+                R.drawable.it_clam, R.drawable.it_seaweed, R.drawable.it_seaweed, R.drawable.it_fish,
+                R.drawable.it_fish, R.drawable.it_fish, R.drawable.it_fish
 
         };
 
