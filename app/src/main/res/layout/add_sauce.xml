@@ -39,7 +39,7 @@
                     <!-- 재료 이미지 -->
                     <ImageButton
                         android:id="@+id/iv_ketchup"
-                        android:layout_width="33dp"
+                        android:layout_width="30dp"
                         android:layout_height="58dp"
                         android:layout_gravity="center"
                         android:background="@drawable/it_ketchup" />
@@ -70,7 +70,7 @@
 
                     <ImageButton
                         android:id="@+id/iv_mayonnaise"
-                        android:layout_width="57dp"
+                        android:layout_width="31dp"
                         android:layout_height="57dp"
                         android:layout_gravity="center"
                         android:background="@drawable/it_mayonnaise" />
@@ -100,8 +100,8 @@
 
                     <ImageButton
                         android:id="@+id/iv_mustard"
-                        android:layout_width="55dp"
-                        android:layout_height="60dp"
+                        android:layout_width="28dp"
+                        android:layout_height="58dp"
                         android:layout_gravity="center"
                         android:background="@drawable/it_mustard" />
 
@@ -131,7 +131,7 @@
 
                     <ImageButton
                         android:id="@+id/iv_bbq"
-                        android:layout_width="50dp"
+                        android:layout_width="29dp"
                         android:layout_height="49dp"
                         android:layout_gravity="center"
                         android:background="@drawable/it_bbq" />
@@ -161,7 +161,7 @@
 
                     <ImageButton
                         android:id="@+id/iv_hot"
-                        android:layout_width="55dp"
+                        android:layout_width="30dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:background="@drawable/it_hot" />
@@ -191,7 +191,7 @@
 
                     <ImageButton
                         android:id="@+id/iv_soysauce"
-                        android:layout_width="35dp"
+                        android:layout_width="33dp"
                         android:layout_height="57dp"
                         android:layout_gravity="center"
                         android:background="@drawable/it_soysauce" />
@@ -221,7 +221,7 @@
 
                     <ImageButton
                         android:id="@+id/iv_sesameoil"
-                        android:layout_width="55dp"
+                        android:layout_width="30dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:background="@drawable/it_sesameoil" />
@@ -281,7 +281,7 @@
 
                     <ImageButton
                         android:id="@+id/iv_sugar"
-                        android:layout_width="55dp"
+                        android:layout_width="30dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
                         android:background="@drawable/it_sugar" />
@@ -371,8 +371,8 @@
 
                     <ImageButton
                         android:id="@+id/iv_redpepperpowder"
-                        android:layout_width="55dp"
-                        android:layout_height="60dp"
+                        android:layout_width="53dp"
+                        android:layout_height="58dp"
                         android:layout_gravity="center"
                         android:background="@drawable/it_redpepperpowder" />
                 </FrameLayout>
