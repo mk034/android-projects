@@ -43,12 +43,10 @@ public class HomeActivity extends AppCompatActivity {
 
         // 레이아웃 요소 초기화
         tvTitle = findViewById(R.id.tv_title);
-        btnEdit = findViewById(R.id.btn_edit);
         btnDelete = findViewById(R.id.btn_delete);
         btnPlus = findViewById(R.id.btn_plus);
         btnSetting = findViewById(R.id.btn_setting);
         btnRecipe = findViewById(R.id.btn_recipe);
-        btnRecipeView = findViewById(R.id.btn_recipe_view);
         recyclerViewIngredients = findViewById(R.id.recycler_view_ingredients_fridge);
         recyclerViewIngredientsFreezer = findViewById(R.id.recycler_view_ingredients_freezer);
 
@@ -108,7 +106,7 @@ public class HomeActivity extends AppCompatActivity {
         btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, AddIngredientActivity.class);
+                Intent intent = new Intent(HomeActivity.this, ScanReceipt.class);
                 startActivity(intent);
             }
         });
