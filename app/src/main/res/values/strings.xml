@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">My Application</string>
+
+    <string-array name="unit_array">
+        <item>개</item>
+        <item>g</item>
+        <item>ml</item>
+        <item>L</item>
+    </string-array>
 </resources>
