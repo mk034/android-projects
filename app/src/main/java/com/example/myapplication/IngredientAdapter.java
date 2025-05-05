@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.Calendar;
 
 public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.ViewHolder> {
 
@@ -50,7 +51,6 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, int position) {
         // 해당 position의 재료 데이터를 가져옴
         Ingredient ingredient = ingredients.get(position);
-        String expirationDateString = ingredient.getFormattedExpirationDate();
 
         // 재료 이름, 수량, 유통기한 등을 표시
         holder.nameTextView.setText(ingredient.getName());
@@ -59,9 +59,26 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.Vi
         holder.expirationDateTextView.setText("유통기한: " + ingredient.getFormattedExpirationDate());
         int imageResId = ingredient.getImageResId();
         holder.imageView.setImageResource(imageResId);
+
         // D-Day 계산 및 표시
         String dDayText = ingredient.calculateDDay();
         holder.dDayTextView.setText(dDayText); // dDayTextView에 D-day 설정
+
+        // D-Day 색상 변경
+        Calendar today = Calendar.getInstance();
+        long diffInMillis = ingredient.getExpirationDate().getTimeInMillis() - today.getTimeInMillis();
+        long diffInDays = diffInMillis / (1000 * 60 * 60 * 24);
+
+        if (diffInDays < 0) {
+            holder.dDayTextView.setBackgroundResource(R.drawable.d_day_background_gray); // 지난 경우 - 회색
+        } else if (diffInDays == 0) {
+            holder.dDayTextView.setBackgroundResource(R.drawable.d_day_background_red); // 당일 - 빨강
+        } else if (diffInDays <= 3) {
+            holder.dDayTextView.setBackgroundResource(R.drawable.d_day_background_orange); // 3일 이하 - 주황
+        } else if (diffInDays <= 7) {
+            holder.dDayTextView.setBackgroundResource(R.drawable.d_day_background_green); // 7일 이상 - 초록
+        }
+
 
         // 삭제 모드일 때만 삭제 버튼을 보여줌
         if (isDeleteMode) {
@@ -135,7 +152,6 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.Vi
             intakeDate = itemView.findViewById(R.id.ingredient_intake_date);
             expirationDateTextView = itemView.findViewById(R.id.ingredient_expiration_date);
             imageView = itemView.findViewById(R.id.ingredient_image);
-            editButton = itemView.findViewById(R.id.btn_edit);
             deleteButton = itemView.findViewById(R.id.btn_delete);
             dDayTextView = itemView.findViewById(R.id.tv_d_day);  // dDayTextView 초기화
 
