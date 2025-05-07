@@ -68,7 +68,7 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="5dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintTop_toBottomOf="@id/item"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -104,6 +104,24 @@
             android:background="@drawable/ic_plus" />
     </LinearLayout>
 
+    <!-- 단위 입력 -->
+    <EditText
+        android:id="@+id/et_unit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="단위 입력 (예: 개, 묶음, g)"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:inputType="text"
+        android:backgroundTint="@color/black"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/quantity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <!-- 유통기한 입력 -->
     <LinearLayout
         android:id="@+id/label"
@@ -112,8 +130,8 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="5dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/quantity"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/et_unit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" >
 
@@ -148,7 +166,7 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="5dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -177,7 +195,7 @@
         android:id="@+id/storageOptions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -223,7 +241,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="160dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="16dp"
         android:text="추가"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/storageOptions"
