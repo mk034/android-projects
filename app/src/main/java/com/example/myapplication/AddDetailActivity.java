@@ -27,10 +27,10 @@ public class AddDetailActivity extends AppCompatActivity {
     private Button btn_fredge, btnSetting, btnRecipe, btnBack, btnDecreaseQuantity, btnIncreaseQuantity, btnIngredientAdd;
     private TextView tvItemName, quantityText;
     private ImageView ivItemImage;
-    private EditText etExpirationDate, etUnit; // 단위 입력 추가;
+    private EditText etExpirationDate;
     private int quantity = 0;
     private RadioGroup rgStorage; // 저장 장소 선택 RadioGroup
-    private Spinner spinnerNotificationDays;
+    private Spinner spinnerUnit, spinnerNotificationDays;
 
 
     @Override
@@ -47,9 +47,18 @@ public class AddDetailActivity extends AppCompatActivity {
         quantityText = findViewById(R.id.quantityText);
         ivItemImage = findViewById(R.id.iv_itemImage);
         etExpirationDate = findViewById(R.id.et_expirationDate);
-        etUnit = findViewById(R.id.et_unit); // 단위 입력란 연결
+        spinnerUnit = findViewById(R.id.spinner_unit);
         rgStorage = findViewById(R.id.rg_storage); // RadioGroup 초기화
         spinnerNotificationDays = findViewById(R.id.spinnerNotificationDays); // Spinner 초기화
+
+        // 단위 스피너 설정
+        ArrayAdapter<CharSequence> unitAdapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.unit_array,
+                android.R.layout.simple_spinner_item
+        );
+        unitAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerUnit.setAdapter(unitAdapter);
 
         // Spinner 알림 날짜 설정 배열
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -120,15 +129,15 @@ public class AddDetailActivity extends AppCompatActivity {
             }
             String ingredientName = tvItemName.getText().toString();
             String expirationDate = etExpirationDate.getText().toString();
-            String unit = etUnit.getText().toString().trim(); // 단위 입력 가져오기
 
             if (expirationDate.isEmpty()) {
                 Toast.makeText(this, "유통기한을 입력해주세요.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
+            String unit = spinnerUnit.getSelectedItem().toString();
             if (unit.isEmpty()) {
-                Toast.makeText(this, "단위를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "단위를 선택해주세요.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -145,7 +154,7 @@ public class AddDetailActivity extends AppCompatActivity {
 
             // 서버로 재료 정보 전송
             ApiRequest apiRequest = new ApiRequest(this);
-            apiRequest.addIngredient(ingredientName, quantity, intakeDate, expirationDate, storageLocation, image );
+            apiRequest.addIngredient(ingredientName, quantity, unit, intakeDate, expirationDate, storageLocation, image );
 
             // 알림 설정
             scheduleNotification(ingredientName, expirationDate);

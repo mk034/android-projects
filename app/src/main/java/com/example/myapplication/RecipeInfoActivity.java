@@ -1,7 +1,8 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
+import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -18,10 +19,16 @@ public class RecipeInfoActivity extends AppCompatActivity {
     private List<Recipe> allRecipes; // 서버에서 받아온 전체 레시피 목록
     private List<Recipe> filteredRecipes; // 검색 결과로 필터링된 레시피 목록
 
+    private Button btnBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_info);
+
+        btnBack = findViewById(R.id.btn_back);
+
+        btnBack.setOnClickListener(v -> finish());
 
         // RecyclerView 설정
         recyclerViewRecipes = findViewById(R.id.recyclerViewRecipes);
@@ -55,20 +62,45 @@ public class RecipeInfoActivity extends AppCompatActivity {
     // 레시피 목록을 가져오는 메서드
     private void loadRecipes() {
         ApiRequest apiRequest = new ApiRequest(this);
+        allRecipes = new ArrayList<>();
+
+        // 서버 레시피
         apiRequest.fetchRecipesByIngredients(new ArrayList<>(), new ApiRequest.RecipeFetchListener() {
             @Override
-            public void onFetchSuccess(List<Recipe> recipes) {
-                allRecipes = recipes;
-                filteredRecipes = new ArrayList<>(allRecipes);
-                recipeAdapter.updateRecipeList(filteredRecipes); // 레시피 어댑터에 데이터 업데이트
+            public void onFetchSuccess(List<Recipe> dbRecipes) {
+                allRecipes.addAll(dbRecipes);
+                checkAndDisplayAll();  // 레시피 도착 후 표시
             }
 
             @Override
             public void onFetchError(VolleyError error) {
-                Toast.makeText(RecipeInfoActivity.this, "레시피를 불러오는 데 실패했습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RecipeInfoActivity.this, "레시피 로딩 실패", Toast.LENGTH_SHORT).show();
+                checkAndDisplayAll();
+            }
+        });
+
+        // api 레시피
+        apiRequest.fetchRecipesFromXMLAPI(new ApiRequest.RecipeFetchListener() {
+            @Override
+            public void onFetchSuccess(List<Recipe> publicRecipes) {
+                allRecipes.addAll(publicRecipes);
+                checkAndDisplayAll();  // 레시피 도착 후 갱신
+            }
+
+            @Override
+            public void onFetchError(VolleyError error) {
+                Toast.makeText(RecipeInfoActivity.this, "레시피 로딩 실패", Toast.LENGTH_SHORT).show();
+                checkAndDisplayAll();
             }
         });
     }
+
+
+    private void checkAndDisplayAll() {
+        filteredRecipes = new ArrayList<>(allRecipes);
+        recipeAdapter.updateRecipeList(filteredRecipes);
+    }
+
 
     // 검색어에 맞는 레시피 목록을 필터링하는 메서드
     private void filterRecipes(String query) {
@@ -78,6 +110,7 @@ public class RecipeInfoActivity extends AppCompatActivity {
                 filteredRecipes.add(recipe);
             }
         }
+
         recipeAdapter.updateRecipeList(filteredRecipes); // 필터링된 레시피를 어댑터에 업데이트
     }
 }
